@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import App from '../App'
 import Home from '../containers/Home'
 import List from '../containers/List'
@@ -14,12 +14,16 @@ class RouteMap extends Component {
   render () {
     return (
       <Router>
-        <Route path="/" component={App}>
-          <Route exact component={Home}/>
-          <Route path="/list" component={List} />
-          <Route path="/detail/:id" component={Detail} />
-          <Route component={NotFound} />
-        </Route>
+        <Route path="/" component={(props) => (
+          <App {...props}>
+            <Switch>
+              <Route exact component={Home} />
+              <Route path="/list" component={List} />
+              <Route path="/detail/:id" component={Detail} />
+              <Route component={NotFound} />
+            </Switch>
+          </App>
+        )} />
       </Router>
     )
   }
