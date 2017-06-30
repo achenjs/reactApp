@@ -82,8 +82,7 @@ function getClientEnvironment(publicUrl) {
       (env, key) => {
         env[key] = JSON.stringify(raw[key]);
         return env;
-      },
-      {}
+      },{}
     ),
   };
 

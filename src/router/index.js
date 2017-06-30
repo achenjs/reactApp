@@ -17,7 +17,7 @@ class RouteMap extends Component {
         <Route path="/" component={(props) => (
           <App {...props}>
             <Switch>
-              <Route exact component={Home} />
+              <Route path="/home" exact component={Home} />
               <Route path="/list" component={List} />
               <Route path="/detail/:id" component={Detail} />
               <Route component={NotFound} />
