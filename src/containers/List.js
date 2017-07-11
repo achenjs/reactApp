@@ -7,9 +7,13 @@ class List extends Component {
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
   }
 
+  hanldDetail () {
+    this.props.history.push('/detail/2')
+  }
+
   render () {
     return (
-      <div>
+      <div onClick={this.hanldDetail.bind(this)}>
         List
       </div>
     )

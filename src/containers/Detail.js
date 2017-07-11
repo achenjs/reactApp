@@ -4,16 +4,19 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 class Detail extends Component {
   constructor (props, context) {
     super(props, context)
+    this.state = {
+      id: this.props.match.params.id
+    }
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
   }
 
   render () {
     return (
       <div>
-        Detail
+        {this.state.id}
       </div>
     )
   }
 }
 
-export default Detail;
+export default Detail
