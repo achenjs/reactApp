@@ -1,5 +1,5 @@
 module.exports = {
-  hasMore: true,
+  hasMore: true,            //  是否还有下一页
   data: [
       {
           img: 'http://images2015.cnblogs.com/blog/138012/201610/138012-20161016201638030-473660627.png',
