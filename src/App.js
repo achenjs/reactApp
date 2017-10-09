@@ -15,7 +15,7 @@ class App extends Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <div className="App">
         {
@@ -27,7 +27,7 @@ class App extends Component {
     )
   }
 
-  componentDidMount () {
+  componentDidMount = () => {
     //  获取位置信息
     let cityName = LocalStore.getItem(CITYNAME)
     if (cityName == null) {
@@ -38,10 +38,17 @@ class App extends Component {
     })
 
     //  更改状态
-    this.setState({
-      initDone: true
-    })
+    this.timer = setTimeout(() => {
+      this.setState({
+        initDone: true
+      })
+    }, 100)
   }
+
+  componentWillUnmount = () => {
+    this.timer = null
+  }
+  
 }
 
 function mapStateToProps (state) {

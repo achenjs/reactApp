@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import App from '../App'
-import Home from '../containers/Home'
+import Home from '../containers/Home/index.js'
 import List from '../containers/List'
-import Detail from '../containers/Detail'
+import Detail from '../containers/Detail/index.js'
 import NotFound from '../containers/NotFound'
 
 class RouteMap extends Component {
