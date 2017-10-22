@@ -21,7 +21,6 @@ class Gategory extends Component {
           index: index
         })
       },
-      // continuous: true
     }
     return (
       <div id="home-category">

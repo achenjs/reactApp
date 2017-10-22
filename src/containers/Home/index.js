@@ -5,6 +5,7 @@ import HomeHeader from '../../components/HomeHeader'
 import Gategory from '../../components/Gategory'
 import Ad from './subpage/Ad'
 import List from './subpage/List'
+
 class Home extends Component {
   constructor (props, context) {
     super(props, context)
@@ -18,7 +19,7 @@ class Home extends Component {
         <Gategory />
         <div style={{height: '15px'}}>{/* 分割线 */}</div>
         <Ad />
-        <List />
+        <List cityName={this.props.userinfo.cityName} />
       </div>
     )
   }

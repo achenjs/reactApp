@@ -10,20 +10,58 @@ class List extends Component {
   constructor (props, context) {
     super(props, context);
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+    this.state = {
+      data: [],
+      hasMore: false,
+      isLoadingMore: false,
+      page: 0
+    }
   }
 
   render () {
     return (
       <div>
         <h2 className="home-list-title">猜你喜欢</h2>
-        <ListComponent />
+        {
+        this.state.data.length ? <ListComponent data={this.state.data} />
+        : <div>{/**
+         * 加载中
+         */}</div>
+        }
       </div>
     )
   }
 
   componentDidMount () {
-    
+    this.loadFirstPageData()
   }
+
+  // 获取首页数据
+  loadFirstPageData = () => {
+    const cityName = this.props.cityName
+    const result = getListData(cityName, 0)
+    this.resultHandle(result)
+  }
+
+  //  处理数据
+  resultHandle = (result) => {
+    result.then(res => {
+      return res.json()
+    }).then(json => {
+      const hasMore = json.hasMore
+      const data = json.data
+      console.log(hasMore)
+      console.log(data)
+      this.setState({
+        hasMore: hasMore,
+        // 最新获取的数据，拼接到原数据之后，使用 concat 函数
+        data: this.state.data.concat(data)
+      })
+    }).catch(ex => {
+      console.error('首页”猜你喜欢“获取数据报错, ', ex.message)
+    })
+  }
+
 }
 
 export default List;
