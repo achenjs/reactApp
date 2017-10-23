@@ -4,7 +4,7 @@ import { getListData } from '../../../fetch/home/home';
 
 import ListComponent from '../../../components/List';
 
-import './index.scss';
+import './style.scss';
 
 class List extends Component {
   constructor (props, context) {
@@ -50,8 +50,6 @@ class List extends Component {
     }).then(json => {
       const hasMore = json.hasMore
       const data = json.data
-      console.log(hasMore)
-      console.log(data)
       this.setState({
         hasMore: hasMore,
         // 最新获取的数据，拼接到原数据之后，使用 concat 函数

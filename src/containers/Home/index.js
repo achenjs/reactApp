@@ -15,7 +15,7 @@ class Home extends Component {
   render () {
     return (
       <div>
-        <HomeHeader cityName={this.props.userinfo.cityName} />
+        <HomeHeader cityName={this.props.userinfo.cityName} router={this.props.history} />
         <Gategory />
         <div style={{height: '15px'}}>{/* 分割线 */}</div>
         <Ad />
