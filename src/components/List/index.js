@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+import Item from './Item'
+
+import './style.scss';
 
 class List extends Component {
   constructor (props, context) {
     super(props, context);
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
   }
 
   render () {
     return (
-      <div>
-
+      <div className="list-container">
+        {this.props.data.map((item, index) => {
+          return <Item key={index} data={item}/>
+        })}
       </div>
     )
   }
