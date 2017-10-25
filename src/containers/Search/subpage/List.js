@@ -22,7 +22,7 @@ class SearchList extends React.Component {
   }
 
   render () {
-    const data = this.state;
+    const { data } = this.state;
     return (
       <div>
         {
@@ -48,7 +48,7 @@ class SearchList extends React.Component {
 
   handleResult = (result) => {
     // 增加 page 计数
-    const page = this.state.page
+    const page = this.state.page;
     this.setState({
         page: page + 1
     })
@@ -68,6 +68,15 @@ class SearchList extends React.Component {
       console.error('搜索页获取数据报错, ', ex.message)
     })
   }
+
+  componentDidUpdate = (prevProps, prevState) => {
+    const { keyword, category } = this.props
+    if (keyword === prevProps.keyword && category === prevProps.category) {
+      return false;
+    };
+    this.loadFirstPageData();
+  }
+  
 }
 
 const mapStateToProps = (state, ownProps) => {

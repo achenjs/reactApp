@@ -32,7 +32,7 @@ router.post('/api/post', koaBody, (ctx, next) => {
   ctx.body = this.request.body;
 });
 
-router.get('/api/search/:page/:city/:category/:keyword', (ctx, next) => {
+router.get('/api/search/:page/:city?/:category?/:keyword?', (ctx, next) => {
   const params = ctx.params;
   // const { page, city, category, keyword } = params;
   ctx.body = searchData;

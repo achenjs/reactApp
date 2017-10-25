@@ -12,7 +12,7 @@ class HomeHeader extends Component {
   }
 
   handleEnter = (val) => {
-    this.props.router.push('/search')
+    this.props.router.push('/search/' + encodeURIComponent(val));
   }
 
   render () {

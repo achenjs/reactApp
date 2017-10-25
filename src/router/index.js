@@ -15,7 +15,7 @@ class RouteMap extends Component {
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/city" component={City} />
-              <Route path="/search/:category?/:keyword?" component={Search} />
+              <Route path="/search/:category/:keyword?" component={Search} />
               <Route component={NotFound} />
             </Switch>
           </App>
