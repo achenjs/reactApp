@@ -14,7 +14,7 @@ class Login extends Component {
 
   // 点击登录
   loginHandle = (username) => {
-
+    console.log(username);
   }
 
   render () {
