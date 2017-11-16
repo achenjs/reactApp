@@ -33,7 +33,7 @@ class CityList extends React.Component {
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
   }
 
-  handleClick = (cityName) => {
+  handleClick = (event, cityName) => {
     const changeFn = this.props.changeFn;
     changeFn(cityName);
   }
@@ -44,7 +44,7 @@ class CityList extends React.Component {
     for (let Item of CityList) {
       CityElement.push(
         <li key={Item.id}>
-          <span onClick={this.handleClick.bind(this, Item.CityName)}>{Item.CityName}</span>
+          <span onClick={(event) => this.handleClick(event, Item.CityName)}>{Item.CityName}</span>
         </li>
       )
     };
